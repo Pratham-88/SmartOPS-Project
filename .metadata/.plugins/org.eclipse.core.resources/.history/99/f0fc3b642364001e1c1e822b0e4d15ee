@@ -1,0 +1,12 @@
+package com.test;
+
+import org.junit.jupiter.api.Test;
+
+public class MyFirstTest {
+	
+	@Test
+	void add_emptyString_returnsZero() {
+		assertEquals(0,StringCalculator.add(""));
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.training.ws;
+
+public class StudentServiceTest {
+
+	public static void main(String[] args) {
+		
+		StudentServiceImpleService service = new StudentServiceImpleService();
+
+	}
+
+}

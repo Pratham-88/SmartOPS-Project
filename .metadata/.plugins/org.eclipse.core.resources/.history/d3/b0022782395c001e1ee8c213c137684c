@@ -1,0 +1,140 @@
+package com.amdocs.main;
+
+import com.amdocs.dao.DoctorDao;
+import com.amdocs.mode.Doctor;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class DoctorManagementSystem {
+    public static void main(String[] args) {
+        DoctorDao doctorDao = new DoctorDao();
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("Enter your choice:");
+            System.out.println("1. Add new doctor");
+            System.out.println("2. Update doctor fees");
+            System.out.println("3. Delete doctor");
+            System.out.println("4. View all doctors");
+            System.out.println("5. Find doctor by specialization");
+            System.out.println("6. Find doctors whose fees are less than all doctors of given shift");
+            System.out.println("7. Count number of doctors by shift");
+            System.out.println("8. Exit");
+
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    // Input and add a new doctor
+                    Doctor newDoctor = new Doctor();
+                   // System.out.print("Enter Doctor Id: ");
+                 //   newDoctor.setDoctorId(scanner.next());
+                    System.out.print("Enter Doctor name: ");
+                    newDoctor.setDoctorName(scanner.next());
+                    System.out.print("Enter Mobile number: ");
+                    newDoctor.setMobileNumber(scanner.next());
+                    System.out.print("Enter Specialization: ");
+                    newDoctor.setSpecialization(scanner.next());
+                    System.out.print("Enter Available shift (morning/evening): ");
+                    newDoctor.setAvailableShift(scanner.next());
+                    System.out.print("Enter Fees: ");
+                    newDoctor.setFees(scanner.nextDouble());
+                    doctorDao.addDoctor(newDoctor);
+                    break;
+                case 2:
+                	System.out.print("Enter doctor ID: ");
+                    int doctorId = scanner.nextInt();
+                    System.out.print("Enter new doctor fee: ");
+                    double newFees = scanner.nextDouble();
+                    doctorDao.updateDoctorFees(doctorId, newFees);
+                    break;
+                    // Implement updating doctor fees
+                	
+                    
+                case 3:
+                	System.out.print("Enter doctor ID: ");
+                    int doctorIdToDelete = scanner.nextInt();
+                    doctorDao.deleteDoctor(doctorIdToDelete);
+                    break;
+                    // Implement deleting a doctor
+                    
+                case 4:
+                    // View all doctors
+                    List<Doctor> doctors = doctorDao.getAllDoctors();
+                    for (Doctor doctor : doctors) {
+                        System.out.println("Doctor ID: " + doctor.getDoctorId());
+                        System.out.println("Name: " + doctor.getDoctorName());
+                        System.out.println("Mobile Number: " + doctor.getMobileNumber());
+                        System.out.println("Specialization: " + doctor.getSpecialization());
+                        System.out.println("Available Shift: " + doctor.getAvailableShift());
+                        System.out.println("Fees: " + doctor.getFees());
+                        System.out.println("---------------------------");
+                    }
+                    // Implement logic to display doctors
+                    break;
+                case 5:
+                    // Input specialization and find a doctor
+                	// Input specialization and find a doctor
+                    System.out.print("Enter specialization to search: ");
+                    String specializationToSearch = scanner.next();
+                    
+                    // Call the findDoctorsBySpecialization method from DoctorDao
+                    List<Doctor> doctorsBySpecialization = doctorDao.findDoctorsBySpecialization(specializationToSearch);
+                    
+                    // Implement logic to display doctors with the given specialization
+                    if (doctorsBySpecialization.isEmpty()) {
+                        System.out.println("No doctors found with the given specialization.");
+                    } else {
+                        System.out.println("Doctors with specialization " + specializationToSearch + ":");
+                        for (Doctor doctor : doctorsBySpecialization) {
+                            System.out.println("Doctor ID: " + doctor.getDoctorId());
+                            System.out.println("Name: " + doctor.getDoctorName());
+                            // Print other doctor details as needed
+                        }
+                    }
+                    break;
+                case 6:
+                    // Input shift and find doctors
+                	System.out.print("Enter shift to search (morning/evening): ");
+                    String shiftToSearch = scanner.next();
+                    
+                    // Call the findDoctorsWithFeesLessThanShift method from DoctorDao
+                    List<Doctor> doctorsWithFeesLessThanShift = doctorDao.findDoctorsWithFeesLessThanShift(shiftToSearch);
+                    
+                    // Implement logic to display doctors with fees less than all doctors of the given shift
+                    if (doctorsWithFeesLessThanShift.isEmpty()) {
+                        System.out.println("No doctors found with fees less than all doctors of the given shift.");
+                    } else {
+                        System.out.println("Doctors with fees less than all doctors of shift " + shiftToSearch + ":");
+                        for (Doctor doctor : doctorsWithFeesLessThanShift) {
+                            System.out.println("Doctor ID: " + doctor.getDoctorId());
+                            System.out.println("Name: " + doctor.getDoctorName());
+                            // Print other doctor details as needed
+                        }
+                    }
+                    break;
+                case 7:
+                    // Input shift and count doctors
+                	System.out.print("Enter shift to count doctors (morning/evening): ");
+                    String shiftToCount = scanner.next();
+                    
+                    // Call the countDoctorsByShift method from DoctorDao
+                    int count = doctorDao.countDoctorsByShift(shiftToCount);
+                    
+                    // Display the count
+                    System.out.println("Number of doctors in shift " + shiftToCount + ": " + count);
+                    break;
+                case 8:
+                    System.out.println("Exiting the Doctor Management System.");
+                    doctorDao.closeConnection();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        } while (choice != 8);
+
+        scanner.close();
+    }
+}

@@ -1,0 +1,71 @@
+package com.example.springboot.model;
+
+public class Student {
+ 
+ private long stuId;
+ private String firstName;
+ private String lastName;
+ private int rollNo;
+ private String grade;
+ 
+ 
+public Student(long stuId, String firstName, String lastName, int rollNo, String grade) {
+	super();
+	this.stuId = stuId;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.rollNo = rollNo;
+	this.grade = grade;
+}
+
+
+public String getFirstName() {
+	return firstName;
+}
+
+
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
+}
+
+
+public String getLastName() {
+	return lastName;
+}
+
+
+public void setLastName(String lastName) {
+	this.lastName = lastName;
+}
+
+
+public int getRollNo() {
+	return rollNo;
+}
+
+
+public void setRollNo(int rollNo) {
+	this.rollNo = rollNo;
+}
+
+
+public String getGrade() {
+	return grade;
+}
+
+
+public void setGrade(String grade) {
+	this.grade = grade;
+}
+
+
+public long getStuId() {
+	return stuId;
+}
+
+
+public void setStuId(long stuId) {
+	this.stuId = stuId;
+}
+ 
+}
