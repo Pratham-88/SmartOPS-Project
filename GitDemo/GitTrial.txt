@@ -1,0 +1,175 @@
+
+
+GITHUB TRIAL
+******************************************************************************
+
+
+
+
+
+
+
+Administrator@1f9436cbcbf154b MINGW64 ~
+$ cd CC:/Users/Administrator/Documents/GitDemo
+bash: cdd: command not found
+
+Administrator@1f9436cbcbf154b MINGW64 ~
+$ cd C:/Users/Administrator/Documents/GitDemo
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo
+$ git init
+Initialized empty Git repository in C:/Users/Administrator/Documents/GitDemo/.git/
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ cat > file1.txt
+this is a demo file.
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git add .
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git commit -m "Its a demo file"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Administrator@1f9436cbcbf154b.(none)')
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git config --global user.email "psm@mail.com"
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$  git config --global user.name Pratham
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git commit -m "Its a demo file"
+[master (root-commit) 16347a3] Its a demo file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git log
+commit 16347a3820e71e6efd44bbfcd1264f1476ac31b8 (HEAD -> master)
+Author: Pratham <psm@mail.com>
+Date:   Thu Oct 5 12:30:51 2023 +0530
+
+    Its a demo file
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git remote add origin https://github.com/Pratham-88/git-demo.git
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git remote -v
+origin  https://github.com/Pratham-88/git-demo.git (fetch)
+origin  https://github.com/Pratham-88/git-demo.git (push)
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 227 bytes | 113.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Pratham-88/git-demo.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+Administrator@1f9436cbcbf154b MINGW64 ~/Documents/GitDemo (master)
+$ cd
+
+Administrator@1f9436cbcbf154b MINGW64 ~
+$ cd C:/Users/Administrator/eclipse-workspace/DMS
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS
+$ git init
+Initialized empty Git repository in C:/Users/Administrator/eclipse-workspace/DMS/.git/
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS (master)
+$ git add .
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .classpath
+        new file:   .project
+        new file:   .settings/org.eclipse.core.resources.prefs
+        new file:   .settings/org.eclipse.jdt.core.prefs
+        new file:   bin/com/amdocs/dao/DoctorDao.class
+        new file:   bin/com/amdocs/main/DoctorManagementSystem.class
+        new file:   bin/com/amdocs/model/Doctor.class
+        new file:   src/com/amdocs/dao/DoctorDao.java
+        new file:   src/com/amdocs/main/DoctorManagementSystem.java
+        new file:   src/com/amdocs/model/Doctor.java
+
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS (master)
+$ git commit -m "main"
+[master (root-commit) 9601157] main
+ 10 files changed, 442 insertions(+)
+ create mode 100644 .classpath
+ create mode 100644 .project
+ create mode 100644 .settings/org.eclipse.core.resources.prefs
+ create mode 100644 .settings/org.eclipse.jdt.core.prefs
+ create mode 100644 bin/com/amdocs/dao/DoctorDao.class
+ create mode 100644 bin/com/amdocs/main/DoctorManagementSystem.class
+ create mode 100644 bin/com/amdocs/model/Doctor.class
+ create mode 100644 src/com/amdocs/dao/DoctorDao.java
+ create mode 100644 src/com/amdocs/main/DoctorManagementSystem.java
+ create mode 100644 src/com/amdocs/model/Doctor.java
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS (master)
+$ git remote add origin https://github.com/Pratham-88/DoctorMS.git
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS (master)
+$ git push -u origin master
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (25/25), 11.21 KiB | 1.60 MiB/s, done.
+Total 25 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Pratham-88/DoctorMS.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+Administrator@1f9436cbcbf154b MINGW64 ~/eclipse-workspace/DMS (master)
+$
